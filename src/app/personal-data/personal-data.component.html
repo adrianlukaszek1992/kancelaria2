@@ -1,0 +1,37 @@
+
+<label class="example-radio-group-label">Kogo reprezentujesz?</label>
+<mat-radio-group
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group"
+  [(ngModel)]="selectedCustomerType">
+  <mat-radio-button class="example-radio-button" *ngFor="let customerType of customerTypes" [value]="customerType" (change)="selectedCustomerTypeChanged(customerType)">
+    {{customerType}}
+  </mat-radio-button>
+</mat-radio-group>
+<div [hidden]="!isPerson">
+  <label>Imię</label>
+  <br>
+  <input type="text" (change)="nameChanged($event)">
+  <br>
+  <label>Nazwisko</label>
+  <br>
+  <input type="text" (change)="lastNameChanged($event)">
+  <br>
+  <label>Adres</label>
+  <br>
+  <input type="text" (change)="addressChanged($event)">
+</div>
+<div [hidden]="!isCompany">
+  <label>Nazwa firmy</label>
+  <br>
+  <input type="text" (change)="companyNameChanged($event)">
+  <br>
+  <label>NIP</label>
+  <br>
+  <input type="text" (change)="nipChanged($event)">
+  <br>
+  <label>Adres</label>
+  <br>
+  <input type="text"(change)="companyAddressChanged($event)">
+</div>
+<button (click)="submit()">Wyślij</button>
