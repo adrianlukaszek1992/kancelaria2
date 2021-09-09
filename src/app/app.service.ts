@@ -4,6 +4,13 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AppService {
+  static getSelectedImage() {
+    return this._selectedImage;
+  }
+
+  static setSelectedImage(value: string) {
+    this._selectedImage = value;
+  }
   static getPrice(): string {
     return this._price;
   }
@@ -28,22 +35,6 @@ export class AppService {
     this._areaRegistered = value;
   }
 
-  static getSelectedTradeMarkType(): string {
-    return this._selectedTradeMarkType;
-  }
-
-  static setSelectedTradeMarkType(value: string) {
-    this._selectedTradeMarkType = value;
-  }
-
-  static getTradeMarkName(): string {
-    return this._tradeMarkName;
-  }
-
-  static setTradeMarkName(value: string) {
-    this._tradeMarkName = value;
-  }
-
   static getProducts(): string {
     return this._products;
   }
@@ -51,11 +42,20 @@ export class AppService {
   static setProducts(value: string) {
     this._products = value;
   }
+  static getAnalysisType(){
+    return this._analysisType;
+  }
+
+  static setAnalysisType(value: string) {
+    this._analysisType = value;
+  }
+
+
   private static _price:string;
+  private static _analysisType:string;
+  private static _selectedImage:string;
   private static _filePath:string;
   private static _areaRegistered:string;
-  private static _selectedTradeMarkType:string;
-  private static _tradeMarkName:string;
   private static _products:string;
   constructor() { }
 

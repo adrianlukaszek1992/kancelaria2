@@ -1,0 +1,171 @@
+<div class="container">
+  <div class="h3_title">Rejestracja wzoru wzoru przemysłowego</div>
+  <div class="box">
+    <div class="left_side">
+      <div class="ukryte">
+        <p class="nazwa_ql">
+          <label class="text-cont">Wybierz od 1 do 7 plików graficznych, które będą reprezentować Twój
+            wzór przemysłowy a następnie wskaż domyślny</label>
+        <form #f="ngForm">
+          <input type="file" class="file-cont-in" name="myFile" (change)="fileEvent($event,f)" multiple/>
+        </form>
+      </div>
+
+    </div>
+    <div class="right_side">
+      <h3 class="right_title">Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque</h3>
+      <p class="tooltipek">Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non
+        felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. Ut molestie a, ultricies
+        porta urna. Vestibulum commodo volutpat a, convallis ac, laoreet enim. Phasellus fermentum in, dolor.
+        Pellentesque facilisis. Nulla imperdiet sit amet magna. Vestibulum dapibus, mauris nec malesuada fames ac turpis
+        velit, rhoncus eu, luctus et interdum adipiscing wisi. Aliquam erat ac ipsum. Integer aliquam purus. </p>
+      <p class="button_tip"><a href="#">
+        <button>dowiedz się więcej</button>
+      </a></p>
+    </div>
+  </div>
+  <!--<div *ngFor='let url of images' >-->
+  <!--  <div class="img-regular" [ngClass]="isImageSelected ? 'img-selected' : 'img-regular'" (click)="handleImageClick()">-->
+  <!--  <img [src]="url" height="100%" width="100%" >-->
+  <!--  </div>-->
+  <!--  </div>-->
+  <!--<img *ngFor='let url of images'  (click)="setDefaultImage(url)" [src]="url" height="150" width="200px" style="margin: 3px; marg: aqua"> <br/>-->
+  <table style="display: block" width="30%">
+    <tr *ngFor="let  url of images" [ngClass]="{'highlight' : url == selectedUrl}" (click)="handleImageClick(url)">
+      <td style="padding: 10px">
+        <img height="150" width="200px" [src]="url">
+      </td>
+    </tr>
+  </table>
+  <div class="box">
+    <div class="left_side">
+
+      <div class="sub_title">Wybierz rodzaj analizy</div>
+      <div class="formularz">
+        <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+
+          [(ngModel)]="analysisTypeRegistred">
+          <mat-radio-button class="radio-cont" *ngFor="let analysisType of analysisTypes" [value]="analysisType"
+                            (change)="analysisTypeChanged(analysisType)">
+            {{analysisType}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+<!--      <div class="inny_ql">-->
+<!--        <a href="https://sarey.pl/dev/rajan/?page_id=21">Chce zarejstrować inny typ wzoru przemysłowego</a><br>-->
+<!--      </div>-->
+      <div class="inny_ql">
+        <a href="https://sarey.pl/dev/rajan/?page_id=239" target="_blank">Więcej informacji na temat wzorów przemysłowych</a><br>
+      </div>
+    </div>
+
+    <div class="right_side">
+      <h3 class="right_title">Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque</h3>
+      <p class="tooltipek">Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non
+        felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. Ut molestie a,
+        ultricies porta urna. Vestibulum commodo volutpat a, convallis ac, laoreet enim. Phasellus fermentum in,
+        dolor. Pellentesque facilisis. Nulla imperdiet sit amet magna. Vestibulum dapibus, mauris nec malesuada fames
+        ac turpis velit, rhoncus eu, luctus et interdum adipiscing wisi. Aliquam erat ac ipsum. Integer aliquam
+        purus. </p>
+      <p class="button_tip"><a href="#">
+        <button>dowiedz się więcej</button>
+      </a></p>
+    </div>
+  </div>
+  <div class="box">
+    <div class="left_side">
+
+      <div class="sub_title">Gdzie chcesz zarejestrować znak towarowy?</div>
+      <div class="formularz">
+        <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          class="example-radio-group"
+          [(ngModel)]="areaRegistered">
+          <mat-radio-button class="example-radio-button" *ngFor="let area of areas" [value]="area"
+                            (change)="areaChanged(area)">
+            {{area}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+
+    <div class="right_side">
+      <h3 class="right_title">Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque</h3>
+      <p class="tooltipek">Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non
+        felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. Ut molestie a, ultricies
+        porta urna. Vestibulum commodo volutpat a, convallis ac, laoreet enim. Phasellus fermentum in, dolor.
+        Pellentesque facilisis. Nulla imperdiet sit amet magna. Vestibulum dapibus, mauris nec malesuada fames ac turpis
+        velit, rhoncus eu, luctus et interdum adipiscing wisi. Aliquam erat ac ipsum. Integer aliquam purus. </p>
+      <p class="button_tip"><a href="#">
+        <button>dowiedz się więcej</button>
+      </a></p>
+    </div>
+  </div>
+
+  <div class="box">
+    <div class="left_side">
+      <div [hidden]="noProductsSelected" style="margin: 0 0 30px 0">
+        <p>{{selectedProduct}}</p>
+        <div style="display:inline-block;">
+          <p>Cena: {{price}} PLN</p>
+        </div>
+
+      </div>
+      <div class="sub_title">Znajdź towar</div>
+      <div class="szukaj">
+        <mat-form-field fxFlex="100%">
+          <input matInput type="text" (keyup)="doFilter($event.target.value)"
+                 placeholder="Wyszukaj towary które chcesz objąć ochroną"
+                 class="searchbarr">
+        </mat-form-field>
+      </div>
+      <table mat-table [dataSource]="dataSource" matSort matSortStart="desc" (matSortChange)="customSort($event)">
+        <ng-container matColumnDef="classNumber">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Klasa</th>
+          <td class="tdklasa" mat-cell *matCellDef="let element"
+              (click)="handleClick(element.baseNumber)"> {{element.classNumber}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="products">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Wykaz Towarów</th>
+          <td class="tdwykaz" mat-cell *matCellDef="let element"> {{element.products}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="add">
+          <th mat-header-cell *matHeaderCellDef> Dodaj</th>
+          <td class="tdaj" mat-cell *matCellDef="let element">
+            <button mat-icon-button color="primary" [disabled]="!noProductsSelected"
+                    (click)="handleAdd(element.products, element.classNumber, element.baseNumber)">
+              <mat-icon class="mat-18">add</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator [pageSize]="2" [pageSizeOptions]="[2, 4, 6, 10, 20]">
+      </mat-paginator>
+
+
+    </div>
+
+    <div class="right_side">
+      <h3 class="right_title">Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque</h3>
+      <p class="tooltipek">Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non
+        felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. Ut molestie a, ultricies
+        porta urna. Vestibulum commodo volutpat a, convallis ac, laoreet enim. Phasellus fermentum in, dolor.
+        Pellentesque facilisis. Nulla imperdiet sit amet magna. Vestibulum dapibus, mauris nec malesuada fames ac turpis
+        velit, rhoncus eu, luctus et interdum adipiscing wisi. Aliquam erat ac ipsum. Integer aliquam purus. Quisque
+        lorem tortor fringilla sed, vestibulum id, eleifend justo vel bibendum sapien massa ac turpis faucibus orci
+        luctus non</p>
+
+    </div>
+  </div>
+  <p class="button_dalej">
+    <button (click)="handleNext()">Dalej</button>
+  </p>
+</div><!-- container -->

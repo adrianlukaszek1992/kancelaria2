@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegisterTradeMarkComponent } from './registerTradeMark/registerTradeMark.component';
+import { RegisterIndustralDesignComponent } from './registerIndustralDesign/registerIndustralDesign.component';
 import { SearchPipe } from './search.pipe';
 import {FormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -28,7 +28,7 @@ import { PersonalDataComponent } from './personal-data/personal-data.component';
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterTradeMarkComponent,
+    RegisterIndustralDesignComponent,
     SearchPipe,
     LayoutComponent,
     PersonalDataComponent
